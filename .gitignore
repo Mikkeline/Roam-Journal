@@ -1,0 +1,23 @@
+.DS_Store
+.build/
+.swiftpm/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+*.xcarchive
+*.ipa
+
+# Local request history, design notes, and work records
+/RECOVERY.md
+/VALIDATION.md
+/RELEASE_READINESS.md
+/ICON_DESIGN.md
+AGENTS.md
+
+# Local credentials and signing material
+.env
+.env.*
+!.env.example
+*.p12
+*.mobileprovision
+*.p8

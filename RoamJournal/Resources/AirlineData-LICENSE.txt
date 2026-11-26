@@ -1,0 +1,4 @@
+CC0 1.0 Universal — dedicated to the public domain. https://creativecommons.org/publicdomain/zero/1.0/
+Source: https://github.com/AviationShop/airline-codes (86 major airlines).
+Roam Journal adds D7/XAX AirAsia X, OD/MXD Batik Air Malaysia, FY/FFM Firefly, and 3U/CSC Sichuan Airlines based on CAAM and IATA operator listings. Reference snapshot: 26 November 2026.
+Airline codes can change or be reassigned. Prefix detection identifies the marketing airline, not a confirmed operating carrier or schedule.
