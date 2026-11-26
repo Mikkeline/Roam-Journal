@@ -14,7 +14,14 @@ import XCTest
         XCTAssertTrue(app.navigationBars["Roam Journal"].waitForExistence(timeout: 15))
         app.buttons["Settings"].tap()
         XCTAssertTrue(app.navigationBars["Settings"].waitForExistence(timeout: 5))
-        app.buttons["Privacy policy"].tap()
+        let privacyPolicy = app.buttons["Privacy policy"]
+        for _ in 0..<6 {
+            if privacyPolicy.exists && privacyPolicy.isHittable { break }
+            app.swipeUp()
+        }
+        XCTAssertTrue(privacyPolicy.waitForExistence(timeout: 5))
+        XCTAssertTrue(privacyPolicy.isHittable)
+        privacyPolicy.tap()
         XCTAssertTrue(app.navigationBars["Privacy policy"].waitForExistence(timeout: 5))
     }
     func testStartupRecoveryIsReachableWithoutOpeningJournal() throws {
