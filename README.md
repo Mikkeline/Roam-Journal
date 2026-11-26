@@ -4,7 +4,7 @@ A private iOS travel journal with trip plans, notes, saved places, photo copies,
 
 ## Open and run
 
-Open `RoamJournal.xcodeproj`, choose the **RoamJournal** scheme and your iPhone or an iPhone simulator, then press Command-R. The project uses Xcode 27.2; use the same or a compatible newer Xcode for its project format. Minimum iOS is 17.
+Open `RoamJournal.xcodeproj`, choose the **RoamJournal** scheme and your iPhone or an iPhone simulator, then press Command-R. The project uses the standard Xcode project format. CI builds with Xcode 26.6; use that version or a compatible newer Xcode. Minimum iOS is 17.
 
 **The default build is local-only and supports the configured Personal Team.** It has no active iCloud or Push Notifications entitlements. Face ID, photos, search, and encrypted local storage do not require those capabilities. The iCloud control is disabled in this build; see [ICLOUD_SETUP.md](ICLOUD_SETUP.md) for a supported developer-account build.
 
