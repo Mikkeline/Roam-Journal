@@ -5,7 +5,7 @@ permissions:
 jobs:
   verify:
     runs-on: macos-26
-    timeout-minutes: 30
+    timeout-minutes: 40
     env:
       TMPDIR: /tmp/
     steps:
@@ -20,7 +20,7 @@ jobs:
         timeout-minutes: 15
         run: bash scripts/ui-tests.sh build
       - name: Boot iPhone simulator
-        timeout-minutes: 5
+        timeout-minutes: 11
         run: python3 scripts/boot-simulator.py
       - name: Install UI test app
         timeout-minutes: 3

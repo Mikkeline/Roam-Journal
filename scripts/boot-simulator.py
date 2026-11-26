@@ -22,8 +22,8 @@ device = next((d for d in candidates if d['state'] == 'Booted'), candidates[0])
 udid = device['udid']
 print(f"Booting {device['name']} ({udid}), iOS {sdk}", flush=True)
 if device['state'] != 'Booted':
-    subprocess.run(['xcrun', 'simctl', 'boot', udid], check=True, timeout=60)
-subprocess.run(['xcrun', 'simctl', 'bootstatus', udid, '-b'], check=True, timeout=180)
+    subprocess.run(['xcrun', 'simctl', 'boot', udid], check=True, timeout=120)
+subprocess.run(['xcrun', 'simctl', 'bootstatus', udid, '-b'], check=True, timeout=480)
 if os.environ.get('GITHUB_ENV'):
     with Path(os.environ['GITHUB_ENV']).open('a') as env_file:
         env_file.write(f'ROAM_SIMULATOR_ID={udid}\n')
