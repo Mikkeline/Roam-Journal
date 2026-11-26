@@ -7,7 +7,7 @@ jobs:
     runs-on: macos-26
     timeout-minutes: 30
     env:
-      TMPDIR: ${{ runner.temp }}/
+      TMPDIR: /tmp/
     steps:
       - uses: actions/checkout@v5
       - name: Select Xcode 26.6
@@ -16,12 +16,15 @@ jobs:
         run: xcodebuild -version
       - name: Core tests, release build and privacy preflight
         run: bash scripts/verify.sh
+      - name: Build UI test app
+        timeout-minutes: 15
+        run: bash scripts/ui-tests.sh build
       - name: Boot iPhone simulator
         timeout-minutes: 5
         run: python3 scripts/boot-simulator.py
-      - name: Build and install UI test app
-        timeout-minutes: 6
-        run: bash scripts/ui-tests.sh build
+      - name: Install UI test app
+        timeout-minutes: 3
+        run: bash scripts/ui-tests.sh install
       - name: Run simulator UI tests
         timeout-minutes: 8
         run: bash scripts/ui-tests.sh test
@@ -30,5 +33,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ui-test-results
-          path: ${{ runner.temp }}/RoamJournalUIVerification/*.xcresult
+          path: /tmp/RoamJournalUIVerification/*.xcresult
           if-no-files-found: ignore
